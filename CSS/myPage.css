@@ -31,8 +31,8 @@ a:hover {
     font-size: 90%;
 }
 
-/*  Logo elements*/
 
+/*  Logo elements*/
 #logoArea {
     background-color: #1A1E6B;
     display: grid;
@@ -64,7 +64,6 @@ a:hover {
 
 
 /*  Nav elements */
-
 nav ul {
     list-style-type: none;
     padding-left: 0;
@@ -144,6 +143,7 @@ textarea {
     color: #DEDEDE;
 }
   
+
 /* Handles alignment of button relative to other elements and removes bullet*/
 .button {
     padding-left: 40px;
@@ -153,14 +153,13 @@ textarea {
     list-style-type: none;
 }
   
+
 /* Color adjustment for button*/
 button {
     background-color: #292FAB;
     color: #DEDEDE;
     border: double;
 }
-
-
 
 
 /*  Grid layout */
@@ -192,14 +191,67 @@ main h2 {
 }
 
 
-/*  Mobile layout start*/
-
-@media (min-width: 600px) {
-    
+/*  Video resizing
+    Sourced from: https://css-tricks.com/fluid-width-video/ */
+.videoContainer {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
 }
 
+.videoContainer iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*  Mobile layout start*/
+@media (max-width: 600px) {
+    #content {
+        display: flex;
+        flex-direction: column;
+    }
+   
+    .menu {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .menu > li {
+        margin: 0 1em;
+    }
+}
+
+
 /*  Large layout start*/
-
 @media (min-width: 1200px) {
+    #textArea {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+
+    .videoContainer {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+        max-height: 675px;
+        padding-bottom: 675px; /* 16:9 */
+    }
+
+    .videoContainer iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1200px;
+        height: 675px;
+    }
 }
